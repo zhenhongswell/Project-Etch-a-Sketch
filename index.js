@@ -23,4 +23,4 @@ function createDivsInRow(number){
 }
 
 createRowDivInContainer(16);
-createDivInRow(16);
+createDivsInRow(16);
