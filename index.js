@@ -2,6 +2,17 @@
 const container = document.querySelector('.container');
 const classDefaultBackgroundColor = 'default-bg-color';
 const classMouseoverBackgroundColor = 'mouseover-bg-color';
+const classMouseoverBackgroundColor_1 = 'mouseover-bg-color-1';
+const classMouseoverBackgroundColor_2 = 'mouseover-bg-color-2';
+const classMouseoverBackgroundColor_3 = 'mouseover-bg-color-3';
+
+const backgroundColorList = [
+    classMouseoverBackgroundColor_1,
+    classMouseoverBackgroundColor_2,
+    classMouseoverBackgroundColor_3
+]
+
+
 let all_div;
 function createRowDivInContainer(number){
     // create divs for each column
@@ -32,7 +43,9 @@ function gridSquareAddlistener(element){
     // leaving a (pixelated) trail through your grid like a pen would.
     element.addEventListener("mouseenter",()=>{
         element.classList.remove(classDefaultBackgroundColor);
-        element.classList.add(classMouseoverBackgroundColor);
+        
+        // element.classList.add(classMouseoverBackgroundColor);
+        element.classList.add(backgroundColorList[Math.floor(Math.random() * 3)]);
     })
 }
 
@@ -50,3 +63,6 @@ createPadButton.addEventListener("click",()=>{
     }
     CreatePad(aNumber);
 })
+
+
+// 

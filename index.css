@@ -24,10 +24,19 @@ body{
 .default-bg-color{
     background-color:papayawhip;
 }
-
 .mouseover-bg-color{
-    background-color: brown;
+    background-color: black;
 }
+.mouseover-bg-color-1{
+    background-color: green;
+}
+.mouseover-bg-color-2{
+    background-color: blue;
+}
+.mouseover-bg-color-3{
+    background-color: red;
+}
+
 .reset-button{
     font-size: 40px;
     height: fit-content;
