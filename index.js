@@ -41,18 +41,23 @@ function createDivsInRow(number){
     });
 }
 
-function gridSquareAddlistener(element){
+function gridSquareAddlistener(element) {
     // Set up a “hover” effect so that the grid divs change color when your mouse passes over them,
     // leaving a (pixelated) trail through your grid like a pen would.
-    element.addEventListener("mouseenter",()=>{
-        // at the start brightness is undefined so we need to have a default value to assign it (100).
-        let currentBrightness = element.dataset.brightness || 100;
-        currentBrightness = parseInt(currentBrightness) - 10;
-        if (currentBrightness >= 0) {
-            element.style.filter = `brightness(${currentBrightness}%)`;
-            element.dataset.brightness = currentBrightness;
-        }
+    element.addEventListener("mouseenter", () => {
+        paintGrid(element);
     })
+}
+
+
+function paintGrid(element){
+    // at the start brightness is undefined so we need to have a default value to assign it (100).
+    let currentBrightness = element.dataset.brightness || 100;
+    currentBrightness = parseInt(currentBrightness) - 10;
+    if (currentBrightness >= 0) {
+        element.style.filter = `brightness(${currentBrightness}%)`;
+        element.dataset.brightness = currentBrightness;
+    }
 }
 
 function CreatePad(size){
