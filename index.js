@@ -6,6 +6,8 @@ const classMouseoverBackgroundColor_1 = 'mouseover-bg-color-1';
 const classMouseoverBackgroundColor_2 = 'mouseover-bg-color-2';
 const classMouseoverBackgroundColor_3 = 'mouseover-bg-color-3';
 
+// background-color:rgba(0,0,0,0)
+
 const backgroundColorList = [
     classMouseoverBackgroundColor_1,
     classMouseoverBackgroundColor_2,
@@ -32,8 +34,9 @@ function createDivsInRow(number){
             const divElement = document.createElement('div');
             divElement.classList.add('grid-square');
             divElement.classList.add(classDefaultBackgroundColor);
-            element.appendChild(divElement);
+            
             gridSquareAddlistener(divElement);
+            element.appendChild(divElement);
         }
     });
 }
@@ -42,10 +45,13 @@ function gridSquareAddlistener(element){
     // Set up a “hover” effect so that the grid divs change color when your mouse passes over them,
     // leaving a (pixelated) trail through your grid like a pen would.
     element.addEventListener("mouseenter",()=>{
-        element.classList.remove(classDefaultBackgroundColor);
-        
-        // element.classList.add(classMouseoverBackgroundColor);
-        element.classList.add(backgroundColorList[Math.floor(Math.random() * 3)]);
+        // at the start brightness is undefined so we need to have a default value to assign it (100).
+        let currentBrightness = element.dataset.brightness || 100;
+        currentBrightness = parseInt(currentBrightness) - 10;
+        if (currentBrightness >= 0) {
+            element.style.filter = `brightness(${currentBrightness}%)`;
+            element.dataset.brightness = currentBrightness;
+        }
     })
 }
 

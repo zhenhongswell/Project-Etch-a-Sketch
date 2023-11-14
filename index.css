@@ -22,11 +22,9 @@ body{
 }
 
 .default-bg-color{
-    background-color:papayawhip;
+    background-color:white;
 }
-.mouseover-bg-color{
-    background-color: black;
-}
+
 .mouseover-bg-color-1{
     background-color: green;
 }
